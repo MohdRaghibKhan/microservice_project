@@ -1,0 +1,5 @@
+package com.userservice.configuration;
+
+public class MyConfig {
+
+}

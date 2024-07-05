@@ -1,0 +1,79 @@
+package com.ratingservice.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ratingservice.entities.Rating;
+import com.ratingservice.repositories.RatingRepository;
+
+@Service
+public class RatingServiceImpl implements RatingService {
+	@Autowired
+	private RatingRepository ratingRepository;
+
+	@Override
+	public Rating createRating(Rating rating) {
+		return ratingRepository.save(rating);
+	}
+
+	@Override
+	public List<Rating> getAllRating() {
+		// TODO Auto-generated method stub
+		return ratingRepository.findAll();
+	}
+
+	@Override
+	public Rating updateRating(Rating rating ,String userId) {
+		
+//		List<Rating> ratings = ratingRepository.findByUserId(userId);
+//		
+//		List<Rating> ratingOfUser = ratings.stream().filter(f -> f.getUserId().equals(userId)).collect(Collectors.toList());
+		
+		return ratingRepository.save(rating);
+	}
+
+	@Override
+	public String deleteRatingById(String id) {
+		ratingRepository.deleteById(id);
+	    Rating rating = ratingRepository.findById(id).get();
+		if(rating==null) {
+			return "deleted successfully";
+			 }else {
+				 return "deletion failed";
+			 }
+	}
+
+	@Override
+	public String deleteAllRating() {
+		// TODO Auto-generated method stub
+		ratingRepository.deleteAll();
+		List<Rating> ratings = ratingRepository.findAll();
+		if(ratings.size()==0) {
+		return "deleted successfully";
+		 }else {
+			 return "deletion failed";
+		 }
+	 }
+
+	@Override
+	public List<Rating> getAllHotel() {
+		// TODO Auto-generated method stub
+		return ratingRepository.findAll();
+	}
+
+	@Override
+	public List<Rating> getRatingByHotelId(String id) {
+		// TODO Auto-generated method stub
+		return ratingRepository.findByHotelId(id);
+	}
+
+	@Override
+	public List<Rating> getRatingByUserId(String id) {
+		// TODO Auto-generated method stub
+		return ratingRepository.findByUserId(id);
+	}
+
+}

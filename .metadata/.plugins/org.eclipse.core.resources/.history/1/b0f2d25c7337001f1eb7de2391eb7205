@@ -1,0 +1,7 @@
+package com.ratingservice.status;
+
+public interface StatusCode {
+	
+	final String USERNOTEXIST="USER NOT EXIST";
+	
+}

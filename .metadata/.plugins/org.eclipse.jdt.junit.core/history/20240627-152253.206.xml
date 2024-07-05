@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun createRating()" project="UserService" tests="1" started="1" failures="0" errors="1" ignored="0">
+  <testsuite name="com.userservice.UserServiceApplicationTests" time="0.948" displayname="UserServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.userservice.UserServiceApplicationTests]">
+    <testcase name="createRating" classname="com.userservice.UserServiceApplicationTests" time="0.948" displayname="createRating()" uniqueid="[engine:junit-jupiter]/[class:com.userservice.UserServiceApplicationTests]/[method:createRating()]">
+      <error>feign.FeignException$NotFound: [404] during [POST] to [http://RATING-SERVICE/ratings] [RatingService#createRating(Rating)]: [{"timestamp":"2024-06-27T09:52:54.107+00:00","status":404,"error":"Not Found","trace":"org.springframework.web.servlet.resource.NoResourceFoundException: No static resource ratings.\n\tat org.springfr... (4152 bytes)]
+	at feign.FeignException.clientErrorStatus(FeignException.java:228)
+	at feign.FeignException.errorStatus(FeignException.java:203)
+	at feign.FeignException.errorStatus(FeignException.java:194)
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:103)
+	at feign.InvocationContext.decodeError(InvocationContext.java:126)
+	at feign.InvocationContext.proceed(InvocationContext.java:72)
+	at feign.ResponseHandler.handleResponse(ResponseHandler.java:63)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:114)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:70)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:99)
+	at jdk.proxy2/jdk.proxy2.$Proxy160.createRating(Unknown Source)
+	at com.userservice.UserServiceApplicationTests.createRating(UserServiceApplicationTests.java:22)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+</error>
+    </testcase>
+  </testsuite>
+</testrun>

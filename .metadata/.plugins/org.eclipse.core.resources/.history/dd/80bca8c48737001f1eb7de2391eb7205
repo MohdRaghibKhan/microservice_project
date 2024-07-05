@@ -1,0 +1,11 @@
+package com.ratingservice.status;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ValidationResponse {
+	public static final String USERNOTEXTST="THIS USER IS NOT EXIST";
+	public static final String HOTELNOTEXTST="PLEASE ENTER WRIG.";
+	
+	public static final String RATINGUPDATED="SUCCESSFULLY UPDATED";
+}

@@ -1,0 +1,12 @@
+package com.ratingservice.status;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class ValidationResponse {
+	static Map<String, String> status=new HashMap<>();
+	 {
+		 status.put("USER NOT EXIST", "ERROR101");
+	 }
+	
+}

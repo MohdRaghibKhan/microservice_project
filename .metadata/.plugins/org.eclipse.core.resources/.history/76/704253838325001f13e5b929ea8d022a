@@ -1,0 +1,8 @@
+server:
+  port: 8989
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:Root%40123@microservices.pmdrvhz.mongodb.net/?retryWrites=true&w=majority&appName=microservices
+      database: microservice

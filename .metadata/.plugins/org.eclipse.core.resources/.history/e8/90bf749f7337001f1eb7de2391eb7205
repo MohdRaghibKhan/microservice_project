@@ -1,0 +1,12 @@
+package com.ratingservice.status;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class VlidationResponse {
+	Map<String, String> status=new HashMap<>();
+	
+	
+	
+	
+}

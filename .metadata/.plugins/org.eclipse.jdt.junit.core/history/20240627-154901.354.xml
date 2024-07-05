@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Rerun createRating()" project="UserService" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.userservice.UserServiceApplicationTests" time="0.974" displayname="UserServiceApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.userservice.UserServiceApplicationTests]">
+    <testcase name="createRating" classname="com.userservice.UserServiceApplicationTests" time="0.974" displayname="createRating()" uniqueid="[engine:junit-jupiter]/[class:com.userservice.UserServiceApplicationTests]/[method:createRating()]"/>
+  </testsuite>
+</testrun>

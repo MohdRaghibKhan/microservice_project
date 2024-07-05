@@ -1,0 +1,18 @@
+server:
+  port: 8989
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://root:Root%40123@microservices.pmdrvhz.mongodb.net/?retryWrites=true&w=majority&appName=microservices
+      database: microservice
+  application:
+           name: RATING-SERVICE  
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:7890/eureka

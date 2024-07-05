@@ -1,0 +1,76 @@
+package com.userservice.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.netflix.discovery.converters.Auto;
+import com.userservice.entities.User;
+import com.userservice.exception.ResourceNotFoundEXception;
+import com.userservice.repositories.UserRepository;
+@Service
+public class UserServiceImpl implements UserService {
+	@Autowired
+	UserRepository repository;
+	@Autowired
+	RestTemplate restTemplate;
+	private Logger logger=LoggerFactory.getLogger(UserService.class);
+	@Override
+	public User saveUser(User user) {
+		
+		return repository.save(user);
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		
+		return repository.findAll();
+	}
+
+	@Override
+	public User getUserById(String userId) {
+		// get user with the help of user repository
+		User user= repository.findById(userId).orElseThrow( () -> new ResourceNotFoundEXception("Resource not found"));
+//		fetching rating of the above user from rating service
+		ArrayList ratingOfUser = restTemplate.getForObject("http://localhost:8989/ratings/user/"+user.getUserId(), ArrayList.class);
+		user.setRatings(ratingOfUser);
+		logger.info("{} ",ratingOfUser);
+		return  user;
+	}
+
+	@Override
+	public String deleteUserById(String id) {
+		repository.deleteById(id);
+		User userById = getUserById(id);
+		if(userById==null) {
+			return "deleted successfully";
+		}else {
+			return "deletion failed";
+		}
+
+	}
+
+	@Override
+	public String deleteAllUser() {
+		repository.deleteAll();
+		List<User> userById = repository.findAll();
+		if(userById.size()==0) {
+			return "deleted successfully";
+		}else {
+			return "deletion failed";
+		}
+	}
+
+	@Override
+	public User updateUserById(User user,String id) {
+//		User oldUser = repository.findById(id).get();
+//		User user2 = new User(user.getUserId(),user.getName(),user.getEmail(),user.getAbout());
+		return repository.save(user);
+	}
+
+}
